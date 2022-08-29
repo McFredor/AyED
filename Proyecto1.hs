@@ -71,6 +71,7 @@ productoria' (x:xs) t = (t x) * (productoria' xs t)
 paratodo' :: [a] -> (a -> Bool) -> Bool
 paratodo' xs p = (length xs) == (length(filter p xs))
 
+-- Ejercicio 6
 -- a)
 todosPares :: [Int] -> Bool
 todosPares xs = paratodo' xs  (\t -> (mod t 2) == 0)
@@ -92,3 +93,70 @@ multiplicaPares :: [Int] -> Int
 multiplicaPares xs = productoria (filter (\t -> (mod t 2) == 0) xs)
 
 -- Ejercicio 7
+{-
+map:    Devuelve una lista A' en base a la aplicación de una función a cada elemento de una lista A. 
+filter: Devuelve una lista A' basada en los elementos de una lista A que cumplen un cierto parametro.
+
+succ:: Int -> Int
+succ n = n + 1
+map succ [1, -4, 6, 2, -8]
+
+Obtendriamos ======> [2,-3,7,3,-7]
+
+esPositivo:: Int -> Bool
+esPositivo n = n > 0
+filter esPositivo [1, -4, 6, 2, 8]
+
+Obtendriamos ======> [1, 6, 2, 8]
+-}
+
+-- Ejercicio 8
+-- a)
+duplicame :: [Int] -> [Int]
+duplicame [] = []
+duplicame (x:xs) = (x*2 :(duplicame xs))
+
+-- b)
+duplicame' :: [Int] -> [Int]
+duplicame' xs = map (\t -> (t*2)) xs
+
+-- Ejercicio 9
+-- a)
+getPar :: [Int] -> [Int]
+getPar [] = []
+getPar (x:xs)
+    | mod x 2 == 0 = (x :(getPar xs))
+    | otherwise = (getPar xs)
+
+-- b)
+getPar' :: [Int] -> [Int]
+getPar' xs = filter (\t -> (mod x 2 == 0)) xs
+
+-- c)
+multiplicaPares' :: [Int] -> Int
+multiplicaPares' xs = productoria getPar xs
+
+-- Ejercicio 10
+-- a)
+primIgualesA :: a -> [a] -> [a]
+primIgualesA n [] = []
+primIgualesA n (x:xs)
+    | x == n = (x :(primIgualesA n xs)) 
+    | otherwise = [] 
+
+-- b)
+primIgualesA' :: a -> [a] -> [a]
+primIgualesA' n xs = takeWhile (\t -> (t == n)) xs
+
+-- Ejercicio 11
+-- a)
+primIguales :: [a] -> [a]
+primIguales [] = []
+primIguales (x:(y:xs))
+    | x == y = (x :(primIguales (y:(xs))) 
+    | otherwise = (x:[])
+
+-- b)
+primIguales' :: [a] -> [a]
+primIguales' (x:xs) = primIgualesA' x xs
+ 
