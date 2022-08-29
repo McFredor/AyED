@@ -130,33 +130,143 @@ getPar (x:xs)
 
 -- b)
 getPar' :: [Int] -> [Int]
-getPar' xs = filter (\t -> (mod x 2 == 0)) xs
+getPar' xs = filter (\t -> (mod t 2 == 0)) xs
 
 -- c)
 multiplicaPares' :: [Int] -> Int
-multiplicaPares' xs = productoria getPar xs
+multiplicaPares' xs = productoria (getPar xs)
 
 -- Ejercicio 10
 -- a)
-primIgualesA :: a -> [a] -> [a]
+primIgualesA :: Eq a => a -> [a] -> [a]
 primIgualesA n [] = []
 primIgualesA n (x:xs)
     | x == n = (x :(primIgualesA n xs)) 
     | otherwise = [] 
 
 -- b)
-primIgualesA' :: a -> [a] -> [a]
+primIgualesA' :: Eq a => a -> [a] -> [a]
 primIgualesA' n xs = takeWhile (\t -> (t == n)) xs
 
 -- Ejercicio 11
 -- a)
-primIguales :: [a] -> [a]
+primIguales :: (Eq a) => [a] -> [a]
 primIguales [] = []
 primIguales (x:(y:xs))
-    | x == y = (x :(primIguales (y:(xs))) 
+    | x == y = (x :(primIguales (y:(xs))))
     | otherwise = (x:[])
 
 -- b)
-primIguales' :: [a] -> [a]
-primIguales' (x:xs) = primIgualesA' x xs
+primIguales' :: Eq a => [a] -> [a]
+primIguales' (x:xs) = primIgualesA' x (x:xs)
  
+
+-- 12)
+cuantGen :: (b -> b -> b) -> b -> [a] -> (a -> b) -> b
+cuantGen op z [] t = z
+cuantGen op z (x:xs) t = (t x) `op` (cuantGen op z xs t)
+
+paratodoGen :: [a] -> (a -> Bool) -> Bool
+paratodoGen xs t = cuantGen (&&) True xs t
+
+existeGen :: [a] -> (a -> Bool) -> Bool
+existeGen xs t = cuantGen (||) False xs t
+
+sumatoriaGen :: [Int] -> Int
+sumatoriaGen xs = cuantGen (+) 0 xs id
+
+productoriaGen :: [Int] -> Int
+productoriaGen xs = cuantGen (*) 1 xs id
+
+{-
+-- 13)
+--a)
+f :: (a, b) -> ...
+f (x, y) = ...
+Esta bien tipado y el patron cubre todos los casos de definicion
+
+--b)
+f :: [(a, b)] -> ...
+(*)f (a, b) = ...
+Esta mal tipado porque la funcion recibe como argumento una lista de tuplas y en este caso se esta usando como parametro una tupla sola.
+
+--c)
+f :: [(a,b)] ->  ...
+f (x:xs) = ...
+Esta bien tipado pero el patron no cubre todos los casos porque no logra acceder a cada elemento de la tupla.
+
+--d)
+f :: [(a,b)] -> ...
+f ((x, y) : ((a, b) : xs)) = ...
+Esta bien tipado y el patron cubre todos los casos de definicion.
+
+--e)
+f :: [(Int, a)] -> ...
+f [(0, a)] = ...
+Esta bien tipado y el patron no cubre todos los casos de definicion porque al usar el 0 como parametro queda restringido el 0 como el unico Int que se puede usar.
+
+--f)
+f :: [(Int, a)] -> ..
+f ((x, 1) : xs) = ...
+Esta bien tipado y el patron no cubre todos los casos de definicion porque al usar el 1 como parametro queda restringido el 1 como el unico "a" que se puede usar.
+
+--g)
+f :: (Int -> Int) -> Int -> ...
+f a b = ...
+Esta bien tipado y el patron cubre todos los casos de definición.
+
+--h)
+f :: (Int -> Int) -> Int -> ...
+f a 3 = ...
+Esta bien tipado y el patron no cubre todos los casos de definicion porque al usar el 3 como parametro queda restringido el 3 como el unico Int que se puede usar.
+
+--i)
+f :: (Int -> Int) -> Int -> ...
+f 0 1 2 = ...
+Esta mal tipado porque el primer argumento requiere una funcion Int -> Int y pasa un 0 como parametro.
+-}
+
+-- 14)
+{-
+-- a)
+f :: (a, b) -> b
+f (a,b) = b
+
+alternativa
+f (a, b) = id b
+
+
+-- b)
+f :: (a, b) -> c
+f (a, b) = c
+
+alternativa
+f (a, b)
+    | a > b = (b, a)
+    | oterwise = (a, b)
+
+
+-- c)  
+f :: (a -> b) -> a -> b
+f g a = b                   --para g :: (a -> b)
+
+alternativa
+f g a = g a 
+
+
+-- d)
+f :: (a -> b) -> [a] -> [b]
+f g [a] = [b]               --para g :: (a -> b)
+
+--alternativa
+f :: (a -> b) -> [a] -> [b]
+map g a = b
+
+
+-- e)
+f :: (a -> b) -> (b -> c) -> a -> c
+f g t a = c                 --para g :: (a -> b) y t :: (b -> c)
+
+--alternativa
+f g t a = t g a
+-}
