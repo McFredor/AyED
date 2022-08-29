@@ -256,11 +256,10 @@ f g a = g a
 
 -- d)
 f :: (a -> b) -> [a] -> [b]
-f g [a] = [b]               --para g :: (a -> b)
+f g a = b               --para g :: (a -> b)
 
 --alternativa
-f :: (a -> b) -> [a] -> [b]
-map g a = b
+f g a = map g a = b
 
 
 -- e)
