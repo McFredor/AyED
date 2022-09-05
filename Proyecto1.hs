@@ -1,4 +1,4 @@
--- Ejesrcicio 1
+-- Ejercicio 1
 -- a)
 esCero::Int -> Bool
 esCero i = i == 0 
@@ -11,7 +11,7 @@ esPositivo i = i > 0
 esVocal::Char -> Bool
 esVocal c = (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
 
--- Ejesrcicio 2
+-- Ejercicio 2
 -- a) 
 paratodo :: [Bool] -> Bool
 paratodo [] = True
@@ -39,12 +39,12 @@ promedio xs
     | otherwise = error "La lista debe ser no vacía"
 
 
--- Ejesrcicio 3
+-- Ejercicio 3
 pertenece :: Int -> [Int] -> Bool
 pertenece a [] = False
 pertenece a (x:xs) = (x == a) || (pertenece a xs)
 
--- Ejesrcicio 4
+-- Ejercicio 4
 -- a) 
 {-
 paratodo' :: [a] -> (a -> Bool) -> Bool
