@@ -1,14 +1,14 @@
 -- Ejercicio 1
 -- a)
-esCero::Int -> Bool
+esCero :: Int -> Bool
 esCero i = i == 0 
 
 -- b)
-esPositivo::Int -> Bool
+esPositivo :: Int -> Bool
 esPositivo i = i > 0
 
 -- c)
-esVocal::Char -> Bool
+esVocal :: Char -> Bool
 esVocal c = (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
 
 -- Ejercicio 2
