@@ -1,6 +1,6 @@
 -- Ejercicio 1
 -- a)
-data Carrera = Matematica | Fisica | Computacion | Astronomia deriving Eq
+data Carrera = Matematica | Fisica | Computacion | Astronomia deriving (Eq, Show)
 
 -- b)
 titulo :: Carrera -> String
@@ -28,5 +28,10 @@ cifradoAmericano Si  = 'B'
 
 -- Ejercicio 3
 -- a)
-minimoElemento :: Bounded a => [a] -> a
-minimoElemento = minBound a
+minimoElemento :: Num a => [a] -> a
+minimoElemento [x] = x
+minimoElemento (x:xs) = x + sumatoria xs
+
+-- b)
+minimoElemento' :: (Num) a => [a] -> a
+minimoElemento' x = minBound x
