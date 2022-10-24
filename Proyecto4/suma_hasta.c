@@ -19,14 +19,12 @@ int suma_hasta(int N) {
     return sumita;
 }
 
-
 int main(void) {
     int n = pedirNumero();
     while (n < 0) {
         printf("\n*ERROR*\nEl número que ha ingresado es negativo. Por favor ingrese uno positivo...\n");
         n = pedirNumero();
     }
-    
     printf("la sumatoria de los primeros %d naturales es: %d\n", n, suma_hasta(n));
     return 0;
 }

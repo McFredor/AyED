@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 bool esPrimo(int i) {
-    if ((i % 2) == 0) {
+    if (i%2 == 0) {
         if (i == 2) {
             return true;
         } else {
@@ -14,7 +14,7 @@ bool esPrimo(int i) {
         while (raiz * raiz < i) {
             raiz++;
         }
-        while ((j <= raiz) && ((i % j) != 0)) {
+        while ((j <= raiz) && (i%j != 0)) {
             j = j+2;
         }
         if (j > raiz) {

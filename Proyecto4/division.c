@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-
 struct div_t {
     int cociente;
     int resto;
@@ -12,7 +11,6 @@ int pidoValorDe(char cosa[9]) {
     scanf("%d", &elValor);
     return elValor;
 }
-
 
 struct div_t division(int x, int y) {
     struct  div_t estaDiv;
@@ -28,7 +26,6 @@ struct div_t division(int x, int y) {
 int main(void) {
     int dividendo = pidoValorDe("dividendo");
     int divisor = pidoValorDe("divisor  ");
-    
     while (dividendo < 0) {
         printf("\n*ERROR*\nEl dividendo que ha ingresado es negativo. Por favor ingrese uno positivo...\n");
         dividendo = pidoValorDe("dividendo");
@@ -41,12 +38,9 @@ int main(void) {
         printf("\n*ERROR*\nEl divisor que ha ingresado es 0. Por favor ingrese uno positivo...\n");
         divisor = pidoValorDe("divisor  ");
     }
-
     struct div_t laDiv;
     laDiv = division(dividendo, divisor);
-
     printf("----------------------------------\n");
-
     printf("   El valor del cociente es: %d \n", laDiv.cociente);
     printf("   El valor del  resto  es : %d \n", laDiv.resto);
     return 0;

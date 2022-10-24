@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <limits.h>
 #include <float.h>
-
 typedef struct _persona{
     char *nombre;
     int edad;

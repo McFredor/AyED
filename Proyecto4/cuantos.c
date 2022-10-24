@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 struct comp_t {
     int menores;
     int iguales;
@@ -23,7 +22,6 @@ struct comp_t cuantos(int a[], int tam, int elem) {
         i++;
     }
     return auguste;
-
 }
 
 int main(void) {
@@ -35,11 +33,9 @@ int main(void) {
         scanf("%d", &arreglo[i]);
         i++;
     }
-    
     int comparado;
     printf("\nIngrese un número para comparar: -> ");
     scanf("%d", &comparado);
-
     struct comp_t son = cuantos(arreglo, 5, comparado);
     printf("\nEn su arreglo hay:\n");
     printf(" %d Número/s menor/es a %d\n", son.menores, comparado);

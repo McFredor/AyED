@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <assert.h>
+const int longitud = 3;
 
 int minimos(int a[], int tam, int p) {
     int i = 0;
@@ -23,24 +24,24 @@ int minimo_impares(int a[], int tam) {
 }
 
 int main(void) {
-    int arreglo[5];
-    printf("¡Hagamos un Arreglo de 5 Enteros!\n");
+    int arreglo[longitud];
+    printf("¡Hagamos un Arreglo de de %d elementos!\n", longitud);
     int i = 0;
-    while(i < 5) {
+    while(i < longitud) {
         printf("%d° valor: -> ", i+1);
         scanf("%d", &arreglo[i]);
         i++;
     }
 
-    if(minimo_pares(arreglo, 5) == INT_MAX) {
+    if(minimo_pares(arreglo, longitud) == INT_MAX) {
         printf("\nSu Arreglo no tiene elementos pares.");
     } else {
-        printf("\nEl minimo elemento par   es: -> %d", minimo_pares(arreglo, 5));
+        printf("\nEl minimo elemento par   es: -> %d", minimo_pares(arreglo, longitud));
     }
-    if(minimo_impares(arreglo, 5) == INT_MAX) {
+    if(minimo_impares(arreglo, longitud) == INT_MAX) {
         printf("\nSu Arreglo no tiene elementos impares.\n");
     } else {
-        printf("\nEl minimo elemento impar es: -> %d\n", minimo_impares(arreglo, 5));
+        printf("\nEl minimo elemento impar es: -> %d\n", minimo_impares(arreglo, longitud));
     }
     return 0;
 }

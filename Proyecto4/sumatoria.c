@@ -19,7 +19,6 @@ int main(void) {
         scanf("%d", &arreglo[i]);
         i++;
     }
-
     printf("\nLa sumatoria de sus elementos es: -> %d\n", sumatoria(arreglo, 5));
     return 0;
 }

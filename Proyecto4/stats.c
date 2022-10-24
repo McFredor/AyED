@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <float.h>
-
 struct datos_t {
     float maximo;
     float minimo;
@@ -41,7 +40,6 @@ int main(void) {
         arreglo[i] = valor;
         i++;
     }
-
     struct datos_t su = stats(arreglo, longitud);
     printf("\n¡Genial! En su arreglo:\n");
     printf(" El mayor número es: %f\n", su.maximo);

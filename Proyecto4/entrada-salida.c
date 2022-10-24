@@ -9,8 +9,7 @@ void pedirArreglo(int a[], int n_max) {
         scanf("%d", &valor);
         a[i] = valor;
         i++;
-    }
-    
+    }  
 }
 
 void imprimeArreglo(int a[], int n_max) {
@@ -29,7 +28,6 @@ int main(void){
     scanf("%d", &longitud);
     int arreglo[longitud];
     pedirArreglo(arreglo, longitud);
-
     printf("\nSu Arreglo quedó:\n");
     imprimeArreglo(arreglo, longitud);
     printf("\n");

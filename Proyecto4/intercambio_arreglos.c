@@ -10,7 +10,6 @@ void intercambiar(int a[], int tam, int i, int j) {
     }
 }
 
-
 int main(void){
     printf("¡Hagamos un Arreglo de Enteros!\nPor favor, precise su longitud: -> ");
     int longitud;
@@ -32,9 +31,7 @@ int main(void){
     printf("Precise el indice del segundo elemento a intercambiar: -> ");
     int elem_j;
     scanf("%d", &elem_j);
-
     intercambiar(arreglo, longitud,  elem_i, elem_j);
-
     printf("\nSu Arreglo quedó:\n");
     printf("{%d", arreglo[0]);
     i = 1;

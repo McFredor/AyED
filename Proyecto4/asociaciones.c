@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+const int longitud = 3;
 typedef char clave_t;
 typedef int valor_t;
-
-const int longitud = 3;
-
 struct asoc {
     clave_t clave;
     valor_t valor;
