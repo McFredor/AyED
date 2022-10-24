@@ -7,15 +7,10 @@ int abs(int n) {
     return n;
 }
 
-int pedirNumero() {
-    int n;
-    printf("Sería usted tan amable de proporcionar un número a este humilde programa: -> ");
-    scanf("%d", &n);
-    return n;
-}
-
 int main(void) {
-    int elNumerito = pedirNumero();
+    int elNumerito;
+    printf("Sería usted tan amable de proporcionar un número a este humilde programa: -> ");
+    scanf("%d", &elNumerito);
     printf("el Absoluto de %d es: %d\n", elNumerito, abs(elNumerito));
     return 0;
 }
